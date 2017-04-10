@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name='ss_accounts',
+    name='soksaccounts',
     version='1.1.0',
     author='chenjiandongx',
     author_email='chenjiandongx@qq.com',
