@@ -4,16 +4,15 @@ import requests
 from bs4 import BeautifulSoup
 
 configs = []
-
-def parse_site_1():
-    """
-    parse website：http://2s.iso369.com
-    """
-    try:
-        url = "http://2s.iso369.com"
-        headers = {'X-Requested-With': 'XMLHttpRequest',
+headers = {'X-Requested-With': 'XMLHttpRequest',
                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'}
 
+
+def parse_iso369():
+    """ parse website：http://2s.iso369.com """
+
+    try:
+        url = "http://2s.iso369.com"
         response = requests.get(url, headers=headers).text.encode('ISO-8859-1').decode('utf-8')
         bs = BeautifulSoup(response, 'lxml').find('aside', id="free").get_text().strip()
     except Exception as e:
@@ -38,15 +37,11 @@ def parse_site_1():
         configs.extend(accounts)
 
 
-def parse_site_2():
-    """
-    parse website：http://xyz.ishadow.online/
-    """
+def parse_ishadow():
+    """ parse website：http://xyz.ishadow.online/ """
+
     try:
         url = "http://xyz.ishadow.online/"
-        headers = {'X-Requested-With': 'XMLHttpRequest',
-                   'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'}
-
         response = requests.get(url, headers=headers).text.encode('ISO-8859-1').decode('utf-8')
         bs = BeautifulSoup(response, 'lxml').find('div', class_="portfolio-items").get_text().strip()
     except Exception as e:
@@ -74,15 +69,11 @@ def parse_site_2():
         configs.extend(accounts)
 
 
-def parse_site_3():
-    """
-    parse website：https://www.kejiss.com
-    """
+def parse_kejiss():
+    """ parse website：https://www.kejiss.com """
+
     try:
         url = "https://www.kejiss.com/page/testss.html"
-        headers = {'X-Requested-With': 'XMLHttpRequest',
-                   'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'}
-
         response = requests.get(url, headers=headers).text
         bs = BeautifulSoup(response, 'lxml').find('div', class_="pagecontent").get_text().strip()
     except Exception as e:
@@ -109,13 +100,10 @@ def parse_site_3():
 
 
 def main():
-    """
-    Shadowsocks4.0.1 download link:
-        https://github.com/shadowsocks/shadowsocks-windows/releases
-    """
-    parse_site_1()
-    parse_site_2()
-    parse_site_3()
+
+    parse_iso369()
+    parse_ishadow()
+    # parse_kejiss()      # 这个网站挂了
 
     gui_config = {
         "configs": configs,
@@ -167,7 +155,6 @@ def main():
         print(">>  " + e)
     else:
         print(">>  Generate gui-config.json successful")
-
 
 
 if __name__ == "__main__":
