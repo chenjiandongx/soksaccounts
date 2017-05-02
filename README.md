@@ -28,7 +28,7 @@ C:\Users\54186>soks
 ### 效果
 毕竟是免费的，速度肯定没有那么稳定，不过有时 youtube 还是可以达到 720P 的  
  
-  ![youtube测速](https://img.js.cn/images/2017/04/09/9461634def7e4924d2794f25eb19fc59.png)  
+  ![youtube测速](https://github.com/chenjiandongx/soksaccounts/blob/master/images/youtube_0.png)  
  
 平时上上 google 查查东西还是可以的，大部分时间上用 youtube 还是有点卡的，这个就当做**实验性项目**吧
 
@@ -37,7 +37,7 @@ C:\Users\54186>soks
 
 xx-net 有图有真相  
 
-![](http://oog4yfyu0.bkt.clouddn.com/youtube_1.png)
+![](https://github.com/chenjiandongx/soksaccounts/blob/master/images/youtube_1.png)
  
 
-### 欢迎fork和star
+### 欢迎 Fork和 Star
