@@ -9,7 +9,6 @@ headers = {'X-Requested-With': 'XMLHttpRequest',
 
 def parse_iso369():
     """ parse website：http://2s.iso369.com """
-
     try:
         url = "http://2s.iso369.com"
         response = requests.get(url, headers=headers).text.encode('ISO-8859-1').decode('utf-8')
@@ -38,7 +37,6 @@ def parse_iso369():
 
 def parse_ishadow():
     """ parse website：http://xyz.ishadow.online/ """
-
     try:
         url = "http://xyz.ishadow.online/"
         response = requests.get(url, headers=headers).text.encode('ISO-8859-1').decode('utf-8')
@@ -70,7 +68,6 @@ def parse_ishadow():
 
 def parse_kejiss():
     """ parse website：https://www.kejiss.com """
-
     try:
         url = "https://www.kejiss.com/page/testss.html"
         response = requests.get(url, headers=headers).text
