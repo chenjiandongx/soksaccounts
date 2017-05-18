@@ -6,7 +6,7 @@ setup(
     author='chenjiandongx',
     author_email='chenjiandongx@qq.com',
     url = "https://github.com/chenjiandongx/soksaccouts",
-    description=' Generate shadowsocks gui-config.json actumatically',
+    description=' Generate shadowsocks gui-config.json automatically',
     license="MIT",
     py_modules=['soks'],
     entry_points={

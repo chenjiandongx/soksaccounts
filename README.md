@@ -12,8 +12,9 @@
 ### 安装
 1. git clone https://github.com/chenjiandongx/soksaccounts.git  
 2. 将 main( ) 里面 path 配置成自己的 shadowsocks 的路径  
-3. cd 到 soksaccounts 目录下  
-4. 执行 ```python setup.py install```
+3. cd soksaccounts   
+4. ```pip install -r requirements.txt```
+5. ```python setup.py install```
 
 ### 使用
 1. 运行soks
@@ -30,7 +31,7 @@ C:\Users\54186>soks
  
   ![youtube测速](https://github.com/chenjiandongx/soksaccounts/blob/master/images/youtube_0.png)  
  
-平时上上 google 查查东西还是可以的，大部分时间上用 youtube 还是有点卡的，这个就当做**实验性项目**吧
+平时上上 Google 查查东西还是可以的，大部分时间上用 youtube 还是有点卡的，这个就当做**实验性项目**吧
 
 ### 最后
 要想要科学上网上得舒心的话，免费的建议 **xx-net**，优化后速度其实还是很不错的。不然就得掏钱自己搭服务器，或者购买 vpn 还是 shadowsocks 服务了  
@@ -40,4 +41,4 @@ xx-net 有图有真相
 ![](https://github.com/chenjiandongx/soksaccounts/blob/master/images/youtube_1.png)
  
 
-### 欢迎 Fork和 Star
+### 欢迎 Fork 和 Star

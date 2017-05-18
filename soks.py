@@ -5,7 +5,8 @@ from bs4 import BeautifulSoup
 
 configs = []
 headers = {'X-Requested-With': 'XMLHttpRequest',
-           'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'}
+           'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) '
+                         'Chrome/56.0.2924.87 Safari/537.36'}
 
 def parse_iso369():
     """ parse website：http://2s.iso369.com """
@@ -96,7 +97,7 @@ def parse_kejiss():
 
 
 def main():
-
+    """ 程序入口 """
     parse_iso369()
     parse_ishadow()
     # parse_kejiss()      # 这个网站挂了
@@ -154,6 +155,5 @@ def main():
 
 
 if __name__ == "__main__":
-
     configs = []
     main()
