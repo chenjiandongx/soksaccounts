@@ -1,0 +1,4 @@
+site_name: Sock
+pages:
+  - Home: README.md
+theme: readthedocs
