@@ -11,8 +11,8 @@
 
 ### 安装
 1. git clone https://github.com/chenjiandongx/soksaccounts.git  
-2. 将 main( ) 里面 path 配置成自己的 shadowsocks 的路径  
-3. cd soksaccounts   
+2. cd soksaccounts
+3. 将 soks.py PATH 变量配置为自己 ss 安装路径
 4. ```pip install -r requirements.txt```
 5. ```python setup.py install```
 

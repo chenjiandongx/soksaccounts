@@ -1,19 +1,22 @@
 import json
 import re
+
 import requests
 from bs4 import BeautifulSoup
 
-configs = []
-headers = {'X-Requested-With': 'XMLHttpRequest',
-           'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) '
-                         'Chrome/56.0.2924.87 Safari/537.36'}
+headers = {
+    'X-Requested-With': 'XMLHttpRequest',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) '
+                  'Chrome/56.0.2924.87 Safari/537.36'
+}
+PATH = r"C:\software\Shadowsocks-4.0\gui-config.json"  # gui-config.json path
 
 def parse_iso369():
     """ parse website：http://2s.iso369.com """
     try:
         url = "http://2s.iso369.com"
-        response = requests.get(url, headers=headers).text.encode('ISO-8859-1').decode('utf-8')
-        bs = BeautifulSoup(response, 'lxml').find('aside', id="free").get_text().strip()
+        req = requests.get(url, headers=headers).text.encode('ISO-8859-1').decode('utf-8')
+        bs = BeautifulSoup(req, 'lxml').find('aside', id="free").get_text().strip()
     except Exception as e:
         print(e)
 
@@ -40,8 +43,8 @@ def parse_ishadow():
     """ parse website：http://xyz.ishadow.online/ """
     try:
         url = "http://xyz.ishadow.online/"
-        response = requests.get(url, headers=headers).text.encode('ISO-8859-1').decode('utf-8')
-        bs = BeautifulSoup(response, 'lxml').find('div', class_="portfolio-items").get_text().strip()
+        req = requests.get(url, headers=headers).text.encode('ISO-8859-1').decode('utf-8')
+        bs = BeautifulSoup(req, 'lxml').find('div', class_="portfolio-items").get_text().strip()
     except Exception as e:
         print(e)
 
@@ -71,8 +74,8 @@ def parse_kejiss():
     """ parse website：https://www.kejiss.com """
     try:
         url = "https://www.kejiss.com/page/testss.html"
-        response = requests.get(url, headers=headers).text
-        bs = BeautifulSoup(response, 'lxml').find('div', class_="pagecontent").get_text().strip()
+        req = requests.get(url, headers=headers).text
+        bs = BeautifulSoup(req, 'lxml').find('div', class_="pagecontent").get_text().strip()
     except Exception as e:
         print(e)
 
@@ -144,12 +147,10 @@ def main():
 
     try:
         result = json.dumps(gui_config)
-        path = r"C:\software\Shadowsocks-4.0\gui-config.json"  # gui-config.json path
-        with open(path, "w+") as f:
+        with open(PATH, "w+") as f:
             f.write(result)
-    except Exception as e:
+    except Exception:
         print(">>  Generate gui-config.json failed")
-        print(">>  " + e)
     else:
         print(">>  Generate gui-config.json successful")
 
