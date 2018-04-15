@@ -5,9 +5,9 @@ import requests
 from bs4 import BeautifulSoup
 
 HEADERS = {
-    'X-Requested-With': 'XMLHttpRequest',
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36'
-                  '(KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
+    "X-Requested-With": "XMLHttpRequest",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36"
+    "(KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36",
 }
 
 # PATH = r"C:\software\Shadowsocks-4.0\gui-config.json"  # gui-config.json path
@@ -15,14 +15,19 @@ PATH = r"D:\gui-config.json"  # gui-config.json path
 
 
 def parse_iso369():
-    """ parse website：http://2s.iso369.com
+    """
+    parse website：http://2s.iso369.com
     """
     try:
         url = "http://2s.iso369.com"
-        req = requests.get(
-            url, headers=HEADERS).text.encode('ISO-8859-1').decode('utf-8')
-        bs = BeautifulSoup(req, 'lxml').find(
-            'aside', id="free").get_text().strip()
+        req = requests.get(url, headers=HEADERS).text.encode(
+            "ISO-8859-1"
+        ).decode(
+            "utf-8"
+        )
+        bs = BeautifulSoup(req, "lxml").find(
+            "aside", id="free"
+        ).get_text().strip()
     except Exception as e:
         print(e)
 
@@ -35,25 +40,30 @@ def parse_iso369():
         for i, value in enumerate(server):
             account = {
                 "server": value,
-                "server_port": server_port[len(server)-i-1],
+                "server_port": server_port[len(server) - i - 1],
                 "password": password[i],
                 "method": "aes-256-cfb",
                 "remarks": "",
-                "timeout": 5
+                "timeout": 5,
             }
             accounts.append(account)
         configs.extend(accounts)
 
 
 def parse_ishadow():
-    """ parse website：http://xyz.ishadow.online/
+    """
+    parse website：http://xyz.ishadow.online/
     """
     try:
         url = "http://xyz.ishadow.online/"
-        req = requests.get(
-            url, headers=HEADERS).text.encode('ISO-8859-1').decode('utf-8')
-        bs = BeautifulSoup(req, 'lxml').find(
-            'div', class_="portfolio-items").get_text().strip()
+        req = requests.get(url, headers=HEADERS).text.encode(
+            "ISO-8859-1"
+        ).decode(
+            "utf-8"
+        )
+        bs = BeautifulSoup(req, "lxml").find(
+            "div", class_="portfolio-items"
+        ).get_text().strip()
     except Exception as e:
         print(e)
 
@@ -73,20 +83,22 @@ def parse_ishadow():
                     "password": value,
                     "method": method[i],
                     "remarks": "",
-                    "timeout": 5
+                    "timeout": 5,
                 }
                 accounts.append(account)
         configs.extend(accounts)
 
 
 def parse_kejiss():
-    """ parse website：https://www.kejiss.com
+    """
+    parse website：https://www.kejiss.com
     """
     try:
         url = "https://www.kejiss.com/page/testss.html"
         req = requests.get(url, headers=HEADERS).text
-        bs = BeautifulSoup(req, 'lxml').find(
-            'div', class_="pagecontent").get_text().strip()
+        bs = BeautifulSoup(req, "lxml").find(
+            "div", class_="pagecontent"
+        ).get_text().strip()
     except Exception as e:
         print(e)
 
@@ -104,21 +116,23 @@ def parse_kejiss():
                 "password": password[i],
                 "method": method[i],
                 "remarks": "",
-                "timeout": 5
+                "timeout": 5,
             }
             accounts.append(account)
         configs.extend(accounts)
 
 
 def main():
-    """ 程序入口 """
+    """
+    程序入口
+    """
     parse_iso369()
     parse_ishadow()
     # parse_kejiss()      # 这个网站挂了
 
     gui_config = {
         "configs": configs,
-        "strategy":"com.shadowsocks.strategy.ha",
+        "strategy": "com.shadowsocks.strategy.ha",
         "index": -1,
         "global": "false",
         "enabled": "true",
@@ -138,14 +152,14 @@ def main():
             "toolbarShown": "false",
             "Font": "Consolas, 9.75pt",
             "BackgroundColor": "Black",
-            "TextColor": "White"
+            "TextColor": "White",
         },
         "proxy": {
             "useProxy": "false",
             "proxyType": 0,
             "proxyServer": "",
             "proxyPort": 0,
-            "proxyTimeout": 3
+            "proxyTimeout": 3,
         },
         "hotkey": {
             "SwitchSystemProxy": "",
@@ -153,8 +167,9 @@ def main():
             "SwitchAllowLan": "",
             "ShowLogs": "",
             "ServerMoveUp": "",
-            "ServerMoveDown": ""
-        }}
+            "ServerMoveDown": "",
+        },
+    }
 
     try:
         result = json.dumps(gui_config)
